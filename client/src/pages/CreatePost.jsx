@@ -6,6 +6,9 @@ import { getRandomPrompt } from "../utils";
 import { FormField, Loader } from "../components";
 
 const CreatePost = () => {
+
+  const fetchURL = "http://localhost:8080/api/v1/dalle"
+
   const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "",
@@ -16,8 +19,32 @@ const CreatePost = () => {
   const [loading, setLoading] = useState(false);
 
   // * function to generate image
-  const generateImg = () => {
+  const generateImg = async () => {
+    if (form.prompt) {
+      try {
+        setGeneratingImg(true);
+        const response = await fetch(fetchURL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ prompt: form.prompt })
+        })
 
+        const data = await response.json();
+
+        setForm({
+          ...form,
+          photo: `data:image/jpeg;base64,${data.photo}`
+        })
+      } catch (error) {
+        alert(error);
+      } finally {
+        setGeneratingImg(false);
+      }
+    } else {
+      alert('Please enter a prompt')
+    }
   }
 
   // handler when submitting the form
@@ -58,10 +85,10 @@ const CreatePost = () => {
         <div className="flex flex-col gap-5">
           {/* normal field when you can type in */}
           <FormField 
-            labelName="Your name"
+            labelName="Your Name"
             type="text"
             name="name"
-            placeholder="John Doe"
+            placeholder="For example: John Doe"
             value={form.name}
             handleChange={handleChange}
           />
@@ -69,7 +96,7 @@ const CreatePost = () => {
           <FormField 
             labelName="Prompt"
             type="text"
-            name="name"
+            name="prompt"
             placeholder="a sunlit indoor lounge area with a pool with clear water and another pool with translucent pastel pink water, next to a big window, digital art"
             value={form.prompt}
             handleChange={handleChange}
@@ -78,7 +105,7 @@ const CreatePost = () => {
           />
 
           {/* image container */}
-          <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center">
+          <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-128 p-3 h-128 flex justify-center items-center">
             {form.photo ? (
               <img 
                 src={form.photo} 
