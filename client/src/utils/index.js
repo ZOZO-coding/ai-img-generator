@@ -1,5 +1,5 @@
 // import file saver library, to download the image
-import FileSaver from  'file-saver';
+import FileSaver from 'file-saver';
 
 // import dummy prompts
 import { surpriseMePrompts } from '../constants';

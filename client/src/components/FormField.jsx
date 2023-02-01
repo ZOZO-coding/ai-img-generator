@@ -15,7 +15,7 @@ const FormField = ({
       <div className="flex items-center gap-2 mb-2">
         <label
           htmlFor={name}
-          className="block text-sm font-medium text-gray-900"
+          className="block text-sm font-medium text-gray-900 dark:text-white"
         >
           {labelName}
         </label>
@@ -29,7 +29,7 @@ const FormField = ({
             >
               Suprise Me!
             </button>
-            <span className="font-semibold text-xs py-1 px-2 rounded-[5px] text-black">(This will randomly generate a prompt for you)</span>
+            <span className="font-semibold text-xs py-1 px-2 rounded-[5px] text-black dark:text-white">(This will randomly generate a prompt for you)</span>
           </>
         )}
       </div>

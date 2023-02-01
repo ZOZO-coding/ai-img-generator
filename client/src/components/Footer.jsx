@@ -2,15 +2,15 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className='w-full flex justify-between items-center bg-white text-gray-800 sm:px-8 px-4 py-4 border-b border-b-[#e6ebf4]'>
+    <footer className='w-full flex justify-between items-center bg-white text-gray-800 sm:px-8 px-4 py-6 border-b border-b-[#e6ebf4] dark:bg-[#121212]'>
       <div className="container group flex justify-between items-center">
-        <p className="text-sm">&copy; 2023 Yu Zuo Production</p>
+        <p className="text-sm dark:text-white">&copy; 2023 Yu Zuo Production</p>
 
         <div className="flex justify-center items-center">
           <a
             href="https://www.linkedin.com/in/yu-zuo-pmp%C2%AE-294aa969/"
             target="_blank"
-            className="text-gray-800  mr-4"
+            className="text-gray-800  mr-4 dark:text-white"
           >
             <svg
               className="h-6 w-6 fill-current"
