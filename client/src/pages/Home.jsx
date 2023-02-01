@@ -16,7 +16,7 @@ const RenderCards = ({ data, title }) => {
 
 const Home = () => {
 
-    const postURL = "http://localhost:8080/api/v1/post"
+    const postURL = "https://ai-image-generator-ftfu.onrender.com/api/v1/post"
 
     const [loading, setLoading] = useState(false);
     const [allPosts, setAllPosts] = useState(null);

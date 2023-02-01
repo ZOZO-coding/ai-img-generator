@@ -7,8 +7,8 @@ import { FormField, Loader } from "../components";
 
 const CreatePost = () => {
 
-  const fetchURL = "http://localhost:8080/api/v1/dalle"
-  const postURL = "http://localhost:8080/api/v1/post"
+  const fetchURL = "https://ai-image-generator-ftfu.onrender.com/api/v1/dalle"
+  const postURL = "https://ai-image-generator-ftfu.onrender.com/api/v1/post"
 
   const navigate = useNavigate();
   const [form, setForm] = useState({

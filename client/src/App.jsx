@@ -6,7 +6,7 @@ import { Footer } from "./components";
 import { Home, CreatePost } from "./pages";
 
 const App = () => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme"));
+  const [theme, setTheme] = useState("light");
 
   // check if the system preference is dark or light and load the page with the corresponding mode
   useEffect(() => {
